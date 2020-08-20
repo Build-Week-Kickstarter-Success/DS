@@ -1,5 +1,5 @@
 # Installed libraries
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 
 # Local libraries
 from pred_model import PredModel
@@ -25,12 +25,17 @@ def campaign():
     # todo: get request object. PredModel will handle
     # preprocessing (e.g., encoding variables, whatever
     # the model needs as input)
-    input = None
 
-    model = PredModel(MODEL_FILE)
-    prediction = model.predict(input)
+    # Determine request method and fetch parameters
+    if request.method == 'POST':
+        input = dict(request.form)
+    elif request.method == 'GET':
+        input = dict(request.args)
+
+    # todo: model = PredModel(MODEL_FILE)
+    # todo: prediction = model.predict(input)
 
     # todo: If we need to do any other massaging before packing
     # and shipping as JSON
 
-    return jsonify(prediction)
+    return jsonify(input)
