@@ -2,13 +2,13 @@
 from flask import Flask, jsonify, render_template, request
 
 # Local libraries
-from pred_model import PredModel
+from app.pred_model import PredModel
 
 
 APP = Flask(__name__)
 
 # todo: name for the pickled model
-MODEL_FILE = None
+MODEL_FILE = 'app/dummy.pickle'
 
 
 @APP.route('/')
@@ -32,10 +32,11 @@ def campaign():
     elif request.method == 'GET':
         input = dict(request.args)
 
-    # todo: model = PredModel(MODEL_FILE)
-    # todo: prediction = model.predict(input)
+    model = PredModel(MODEL_FILE)
+    prediction = model.predict(input)
 
     # todo: If we need to do any other massaging before packing
     # and shipping as JSON
+    input['prediction'] = prediction
 
     return jsonify(input)
