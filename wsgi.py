@@ -1,5 +1,5 @@
 # Installed libraries
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, render_template, request
 
 # Local libraries
 from pred_model import PredModel
@@ -13,7 +13,7 @@ MODEL_FILE = None
 
 @APP.route('/')
 def root():
-    return 'Welcome to the rest of your life.'
+    return render_template('root.html')
 
 
 @APP.route('/campaign', methods=['GET', 'POST'])
