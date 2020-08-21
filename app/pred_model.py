@@ -38,7 +38,7 @@ class PredModel():
 
     def validate_input(self, campaign):
         '''
-        Validates input for the model. 
+        Validates input for the model.
 
         Arguments:
             campaign - the variables received in the HTML request
@@ -75,10 +75,9 @@ class PredModel():
             Binary result of model, 0 or 1.
         '''
 
-        # todo: process input? Whatever we need to do before
-        # inputing into model
+        # Assure variables from HTML request are in correct order
         campaign_processed = \
-            np.array([campaign[key] for key in campaign.keys()])
+            np.array([campaign[key] for key in EXPECTED_VARIABLES])
         campaign_processed = campaign_processed.reshape(1, -1)
 
         # get prediction

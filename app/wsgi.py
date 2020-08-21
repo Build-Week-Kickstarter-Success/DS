@@ -21,7 +21,7 @@ def root():
 def campaign():
     '''
     Accept input for the predictive model, and return prediction or
-    error. 
+    error.
 
     Accepts either POST or GET methods.
 
