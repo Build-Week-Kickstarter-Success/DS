@@ -34,7 +34,8 @@ class PredModel():
     '''
     def __init__(self, model_file):
         # todo: import pickled model from unit4, and load
-        self.model = pickle.load(open(model_file, 'rb'))
+        with open(model_file, 'rb') as pickle_file:
+            self.model = pickle.load(pickle_file)
 
     def validate_input(self, campaign):
         '''
@@ -63,7 +64,7 @@ class PredModel():
 
     def predict(self, campaign):
         '''
-        Accept input, send to predictive model, and accepts result. 
+        Accept input, send to predictive model, and accepts result.
         Perform any preprocessing of input for model (including put input
         into correct shape as (1, n) size array, where n is number of
         input features)
