@@ -86,4 +86,4 @@ class PredModel():
 
         # Do any processing before returning.
 
-        return np.squeeze(result)
+        return result[0]

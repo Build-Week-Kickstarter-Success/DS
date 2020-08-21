@@ -11,4 +11,4 @@ class DummyModel():
         return self
 
     def predict(self, X):
-        return 0
+        return [0]
