@@ -8,7 +8,7 @@ from app.pred_model import PredModel
 APP = Flask(__name__)
 
 # todo: name for the pickled model
-MODEL_FILE = 'app/dummy.pickle'
+MODEL_FILE = 'app/model/dummy.pickle'
 
 
 @APP.route('/')
