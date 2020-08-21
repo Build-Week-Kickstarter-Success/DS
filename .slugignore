@@ -1,0 +1,8 @@
+# Anything that should not be part of the deployment
+# (But included in github repo)
+
+dummy.py
+make_dummy.py
+
+.vscode
+test

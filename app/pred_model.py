@@ -1,6 +1,9 @@
 # Import libraries
 import pickle
+import numpy as np
 # todo
+
+from app.model.dummy import DummyModel
 
 
 class PredModel():
@@ -14,7 +17,9 @@ class PredModel():
     def predict(self, campaign):
         # todo: process input? Whatever we need to do before
         # inputing into model
-        campaign_processed = None
+        campaign_processed = \
+            np.array([campaign[key] for key in campaign.keys()])
+        campaign_processed = campaign_processed.reshape(1, -1)
 
         # get prediction
         result = self.model.predict(campaign_processed)

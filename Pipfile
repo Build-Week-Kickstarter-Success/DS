@@ -9,6 +9,7 @@ pycodestyle = "*"
 [packages]
 flask = "*"
 gunicorn = "*"
+numpy = "*"
 
 [requires]
 python_version = "3.7"
