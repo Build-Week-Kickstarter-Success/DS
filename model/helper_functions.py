@@ -2,6 +2,8 @@
 import os
 import pandas as pd
 from sklearn.utils import resample
+import category_encoders as ce
+from sklearn.preprocessing import StandardScaler
 
 
 def load_data():
@@ -46,6 +48,26 @@ def my_split(df, year):
     train = df[df['launch_year'] < year]
     test = df[df['launch_year'] == year]
     return train, test
+
+def model_prep(train, test, features, target, onehot=True, scale=True):
+    encoder = ce.one_hot.OneHotEncoder(use_cat_names=True)
+    scaler = StandardScaler()
+
+    X_train = train[features]
+    if onehot:
+        X_train = encoder.fit_transform(X_train)
+    if scale:
+        X_train = scaler.fit_transform(X_train)
+
+    y_train = train[target]
+
+    X_test = test[features]
+    if onehot:
+        X_test = encoder.transform(X_test)
+    if scale:
+        X_test = scaler.transform(X_test)
+    y_test = test[target]
+    return X_train, y_train, X_test, y_test
 
 
 
