@@ -1,0 +1,7 @@
+https://s3.amazonaws.com/weruns/forfun/Kickstarter/Kickstarter_2020-07-16T03_20_08_086Z.zip
+https://s3.amazonaws.com/weruns/forfun/Kickstarter/Kickstarter_2020-06-18T03_20_07_487Z.zip
+https://s3.amazonaws.com/weruns/forfun/Kickstarter/Kickstarter_2020-05-14T03_20_08_560Z.zip
+https://s3.amazonaws.com/weruns/forfun/Kickstarter/Kickstarter_2020-04-16T03_20_04_541Z.zip
+https://s3.amazonaws.com/weruns/forfun/Kickstarter/Kickstarter_2020-03-12T03_20_06_551Z.zip
+https://s3.amazonaws.com/weruns/forfun/Kickstarter/Kickstarter_2020-02-13T03_20_04_893Z.zip
+https://s3.amazonaws.com/weruns/forfun/Kickstarter/Kickstarter_2020-01-16T03_20_15_556Z.zip

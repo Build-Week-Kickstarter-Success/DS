@@ -11,6 +11,7 @@ flask = "*"
 gunicorn = "*"
 numpy = "*"
 psycopg2 = "*"
+pandas = "*"
 
 [requires]
 python_version = "3.7"

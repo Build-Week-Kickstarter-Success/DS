@@ -1,0 +1,12 @@
+https://s3.amazonaws.com/weruns/forfun/Kickstarter/Kickstarter_2019-12-12T03_20_05_306Z.zip
+https://s3.amazonaws.com/weruns/forfun/Kickstarter/Kickstarter_2019-11-14T03_20_27_004Z.zip
+https://s3.amazonaws.com/weruns/forfun/Kickstarter/Kickstarter_2019-10-17T03_20_19_421Z.zip
+https://s3.amazonaws.com/weruns/forfun/Kickstarter/Kickstarter_2019-09-12T03_20_06_215Z.zip
+https://s3.amazonaws.com/weruns/forfun/Kickstarter/Kickstarter_2019-08-15T03_20_03_022Z.zip
+https://s3.amazonaws.com/weruns/forfun/Kickstarter/Kickstarter_2019-07-18T03_20_05_009Z.zip
+https://s3.amazonaws.com/weruns/forfun/Kickstarter/Kickstarter_2019-06-13T03_20_35_801Z.zip
+https://s3.amazonaws.com/weruns/forfun/Kickstarter/Kickstarter_2019-05-16T03_20_20_822Z.zip
+https://s3.amazonaws.com/weruns/forfun/Kickstarter/Kickstarter_2019-04-18T03_20_02_220Z.zip
+https://s3.amazonaws.com/weruns/forfun/Kickstarter/Kickstarter_2019-03-14T03_20_12_200Z.zip
+https://s3.amazonaws.com/weruns/forfun/Kickstarter/Kickstarter_2019-02-14T03_20_04_734Z.zip
+https://s3.amazonaws.com/weruns/forfun/Kickstarter/Kickstarter_2019-01-17T03_20_02_630Z.zip
