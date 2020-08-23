@@ -8,6 +8,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.metrics import roc_auc_score
 from sklearn.metrics import f1_score
 import keras.backend as K
+import re
 
 
 def load_data():
@@ -94,6 +95,10 @@ def get_f1(y_true, y_pred): #taken from old keras source code
     f1_val = 2*(precision*recall)/(precision+recall+K.epsilon())
     return f1_val
 
+def clean_text(text):
+    tokens = re.sub('[^a-zA-Z 0-9]', '', text)
+    tokens = tokens.lower().split()
+    return tokens
 
 
 
