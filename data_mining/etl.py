@@ -19,7 +19,7 @@ class KickstartDatabase():
         '''
         # Retrieve CSV into dataframe and filter to just selected columns
         dirname = os.path.dirname(__file__)
-        filename = os.path.join(dirname, '../data/raw_data.csv')
+        filename = os.path.join(dirname, '../model/data/raw_data.csv')
         df = pd.read_csv(filename)
         df = df[self.common_columns]
 
@@ -110,7 +110,7 @@ if __name__ == '__main__':
                       'desc']
 
     dirname = os.path.dirname(__file__)
-    filename = os.path.join(dirname, '../data/kickstart.sqlite')
+    filename = os.path.join(dirname, '../model/data/kickstart.sqlite')
     connection = sqlite3.Connection(filename)
     ks_db = KickstartDatabase(connection, common_columns)
 
