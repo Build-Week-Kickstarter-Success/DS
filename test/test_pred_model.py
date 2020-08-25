@@ -10,7 +10,7 @@ class test_validation(unittest.TestCase):
         self.model = PredModel(MODEL_FILE)
 
     def test_invalid(self):
-        '''Invalid entry - shoule output False'''
+        '''Invalid entry - should output False'''
         invalid_data = {'name': 'karen', 'has_cat': True}
         result = self.model.validate_input(invalid_data)
         self.assertFalse(result)
