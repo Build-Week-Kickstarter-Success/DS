@@ -49,5 +49,5 @@ def campaign():
     return jsonify(output=output), result
 
 
-if __name__ == '__main__":
+if __name__ == "__main__":
     APP.run()
