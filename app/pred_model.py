@@ -3,7 +3,7 @@ import pickle
 import numpy as np
 # todo
 
-from app.model.dummy import DummyModel
+# from app.model.dummy import DummyModel
 
 
 '''
@@ -36,6 +36,7 @@ class PredModel():
     '''
     def __init__(self, model_file):
         # todo: import pickled model from unit4, and load
+        print('Attempt to load model')
         with open(model_file, 'rb') as pickle_file:
             self.model = pickle.load(pickle_file)
 
