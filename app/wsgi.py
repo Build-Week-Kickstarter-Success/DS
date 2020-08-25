@@ -47,3 +47,7 @@ def campaign():
     # and shipping as JSON
 
     return jsonify(output=output), result
+
+
+if __name__ == '__main__":
+    APP.run()
