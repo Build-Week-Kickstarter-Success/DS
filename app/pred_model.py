@@ -3,6 +3,8 @@ import pickle
 import numpy as np
 # todo
 
+from app.model.dummy import DummyModel
+
 
 '''
 Expected inputs:
