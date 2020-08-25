@@ -1,1 +1,1 @@
-web: gunicorn kickstarter:APP -t 300s
+web: gunicorn kickstarter:APP -t 300
