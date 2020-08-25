@@ -1,1 +1,1 @@
-web: gunicorn kickstarter:APP -t 300
+web: gunicorn app.wsgi:app
