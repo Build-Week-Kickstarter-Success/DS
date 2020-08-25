@@ -1,8 +1,15 @@
 # Anything that should not be part of the deployment
 # (But included in github repo)
 
+# exclude dummy making
 dummy.py
 make_dummy.py
 
+# exclude vscode settings
 .vscode
+
+# exclude unit tests
 test
+
+# exclude notebooks
+*.ipynb

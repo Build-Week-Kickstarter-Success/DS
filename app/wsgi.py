@@ -13,18 +13,21 @@ MODEL_FILE = 'app/model/dummy.pickle'
 
 @APP.route('/')
 def root():
+    '''Return readme page'''
     return render_template('root.html')
 
 
 @APP.route('/campaign', methods=['GET', 'POST'])
 def campaign():
-    # todo: get campaign info from web folks, predict,
-    # return results as json. Not even sure yet which
-    # method(s), etc.
+    '''
+    Accept input for the predictive model, and return prediction or
+    error.
 
-    # todo: get request object. PredModel will handle
-    # preprocessing (e.g., encoding variables, whatever
-    # the model needs as input)
+    Accepts either POST or GET methods.
+
+    Returns output and HTML response code (200 for success, 400 for
+    bad request if incomplete input)
+    '''
 
     # Determine request method and fetch parameters
     if request.method == 'POST':
@@ -33,10 +36,14 @@ def campaign():
         input = dict(request.args)
 
     model = PredModel(MODEL_FILE)
-    prediction = model.predict(input)
+    if not model.validate_input(input):
+        output = 'Key Error: incorrect input variables'
+        result = 400
+    else:
+        output = model.predict(input)
+        result = 200
 
     # todo: If we need to do any other massaging before packing
     # and shipping as JSON
-    input['prediction'] = prediction
 
-    return jsonify(input)
+    return jsonify(output=output), result
