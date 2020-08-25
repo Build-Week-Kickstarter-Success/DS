@@ -1,1 +1,1 @@
-web: gunicorn app.wsgi -t 300s
+web: gunicorn app.wsgi:app -t 300s
