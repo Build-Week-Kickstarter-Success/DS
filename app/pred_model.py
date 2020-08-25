@@ -3,7 +3,7 @@ import pickle
 import numpy as np
 # todo
 
-from .model.dummy import DummyModel
+from app.model.dummy import DummyModel
 
 
 '''
