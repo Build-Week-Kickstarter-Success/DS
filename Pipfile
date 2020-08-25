@@ -10,6 +10,12 @@ pycodestyle = "*"
 flask = "*"
 gunicorn = "*"
 numpy = "*"
+psycopg2 = "*"
+jupyter = "*"
+pandas = "*"
+sklearn = "*"
+category-encoders = "*"
+keras = "*"
 
 [requires]
 python_version = "3.7"
