@@ -2,7 +2,6 @@
 # (But included in github repo)
 
 # exclude dummy making
-dummy.py
 make_dummy.py
 
 # exclude vscode settings
@@ -13,3 +12,8 @@ test
 
 # exclude notebooks
 *.ipynb
+
+# exclude data_model
+data_model
+
+
