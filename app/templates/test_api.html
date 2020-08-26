@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="jumbotron">
-    {{ wtf.quick_form(form) }}
+    {{ wtf.quick_form(form, button_map={'submit':'success'}) }}
 </div>
 
 {% endblock content %}
