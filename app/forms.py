@@ -14,7 +14,7 @@ class TestForm(FlaskForm):
     goal = FloatField('Amount', )
     keywords = StringField('Descriptive Keywords', )
     disable_com = SelectField('Are Communications Enabled?',
-                            choices=[(False, 'Yes'), (True, 'No')],
+                            choices=[('False', 'Yes'), ('True', 'No')],
                             )
     country = StringField('Country of Campaign', )
     currency = StringField('Type of Currency?', )
