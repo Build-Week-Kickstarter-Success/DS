@@ -1,11 +1,16 @@
 # Installed libraries
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify, redirect, render_template, request, url_for
+from flask_bootstrap import Bootstrap
 
 # Local libraries
 from app.pred_model import PredModel
+from app.forms import TestForm
 
 
 APP = Flask(__name__)
+Bootstrap(APP)
+
+APP.config['SECRET_KEY'] = 'Its a secret to everyone'
 
 # todo: name for the pickled model
 MODEL_FILE = 'app/model/dummy.pickle'
@@ -16,6 +21,23 @@ def root():
     '''Return readme page'''
     return render_template('root.html')
 
+@APP.route('/test_api', methods=['GET', 'POST'])
+def test_api():
+    form = TestForm()
+    if form.validate_on_submit():
+        name=form.name.data
+        desc=form.desc.data
+        goal=form.goal.data
+        keywords=form.keywords.data
+        disable_communication=form.disable_com.data
+        country=form.country.data
+        currency=form.currency.data
+        campaign_length=form.length.data
+        return redirect(url_for('campaign', name=name, desc=desc, goal=goal, keywords=keywords, 
+                                disable_communication=disable_communication, country=country, 
+                                currency=currency, campaign_length=campaign_length))
+
+    return render_template('test_api.html', form=form)
 
 @APP.route('/campaign', methods=['GET', 'POST'])
 def campaign():

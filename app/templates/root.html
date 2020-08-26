@@ -5,14 +5,39 @@
         
         <h1 class='display-4'>Readme</h1>
         <p class='lead'>
-            Documentation for the Kickstart Success Passthrough App
+            Documentation for the Kickstarter Success Passthrough App
         </p>
         <hr class='my-4'>
         <pre>
-            This will be an explaination of what the app does.
-            TODO: Description of how the json is created and passed to the app.
-            TODO: Description of what the app does with the json.
-            TODO: List of dependencies and such.
+            This app receives data from the Kickstarter Success App about a proposed
+            Kickstarter campaign and then passes that data into a neural network model 
+            to determine the likelyhood of success of the proposed campaign.
+
+            The data is received in the form of a json that has the following keys
+            with associated values:
+
+                name: str. The name of the Project
+
+                desc: str. A description of the project
+
+                goal: float. The goal (amount of money) required for the project
+
+                keywords: str. Keywords which describe the project
+
+                disable_communication: bool. Whether the project authors has disabled communication 
+                option with people donating to the project
+
+                country: str. The country of the project's author
+
+                currency: str. The currency in which the goal (amount) is required
+
+                campaign_length: The length of the campaign measured in days
+
+            The app then pulls the data out of the json and formats it to be processed
+            by the model.
+
+            The model then returns a value between 0 and 1 that is then sent back
+            to the Kickstarter Success App to be displayed to the user.
         </pre>
 
     </div>

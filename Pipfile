@@ -16,6 +16,9 @@ pandas = "*"
 sklearn = "*"
 category-encoders = "*"
 keras = "*"
+flask-wtf = "*"
+wtforms = "*"
+flask-bootstrap = "*"
 
 [requires]
 python_version = "3.7"
