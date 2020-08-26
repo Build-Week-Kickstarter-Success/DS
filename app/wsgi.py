@@ -75,8 +75,8 @@ def campaign():
             output = model.predict(input)
             result = 200
     except Exception:
-        result = 400
-        output = 'Key Error: incorrect input variables'
+        result = 500
+        output = 'Internal error'
     finally:
         return jsonify(output=output), result
 
