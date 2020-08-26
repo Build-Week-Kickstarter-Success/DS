@@ -65,9 +65,8 @@ def campaign():
     elif request.method == 'GET':
         input = dict(request.args)
 
-    model = PredModel(MODEL_FILE)
-
     try:
+        model = PredModel(MODEL_FILE)
         if not model.validate_input(input):
             output = 'Key Error: incorrect input variables'
             result = 400

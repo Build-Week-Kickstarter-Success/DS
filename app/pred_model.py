@@ -36,9 +36,11 @@ class PredModel():
     '''
     def __init__(self, model_file):
         # todo: import pickled model from unit4, and load
-        print('Attempt to load model')
-        with open(model_file, 'rb') as pickle_file:
-            self.model = pickle.load(pickle_file)
+        try:
+            with open(model_file, 'rb') as pickle_file:
+                self.model = pickle.load(pickle_file)
+        except Exception as err:
+            raise err
 
     def validate_input(self, campaign):
         '''
