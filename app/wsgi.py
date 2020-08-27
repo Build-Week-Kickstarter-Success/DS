@@ -21,23 +21,31 @@ def root():
     '''Return readme page'''
     return render_template('root.html')
 
+
 @APP.route('/test_api', methods=['GET', 'POST'])
 def test_api():
     form = TestForm()
     if form.validate_on_submit():
-        name=form.name.data
-        desc=form.desc.data
-        goal=form.goal.data
-        keywords=form.keywords.data
-        disable_communication=form.disable_com.data
-        country=form.country.data
-        currency=form.currency.data
-        campaign_length=form.length.data
-        return redirect(url_for('campaign', name=name, desc=desc, goal=goal, keywords=keywords, 
-                                disable_communication=disable_communication, country=country, 
-                                currency=currency, campaign_length=campaign_length))
+        name = form.name.data
+        desc = form.desc.data
+        goal = form.goal.data
+        keywords = form.keywords.data
+        disable_communication = form.disable_com.data
+        country = form.country.data
+        currency = form.currency.data
+        campaign_length = form.length.data
+        return redirect(url_for('campaign',
+                                name=name,
+                                desc=desc,
+                                goal=goal,
+                                keywords=keywords,
+                                disable_communication=disable_communication,
+                                country=country,
+                                currency=currency,
+                                campaign_length=campaign_length))
 
     return render_template('test_api.html', form=form)
+
 
 @APP.route('/campaign', methods=['GET', 'POST'])
 def campaign():
@@ -57,18 +65,19 @@ def campaign():
     elif request.method == 'GET':
         input = dict(request.args)
 
-    model = PredModel(MODEL_FILE)
-    if not model.validate_input(input):
-        output = 'Key Error: incorrect input variables'
-        result = 400
-    else:
-        output = model.predict(input)
-        result = 200
-
-    # todo: If we need to do any other massaging before packing
-    # and shipping as JSON
-
-    return jsonify(output=output), result
+    try:
+        model = PredModel(MODEL_FILE)
+        if not model.validate_input(input):
+            output = 'Key Error: incorrect input variables'
+            result = 400
+        else:
+            output = model.predict(input)
+            result = 200
+    except Exception:
+        result = 500
+        output = 'Internal error'
+    finally:
+        return jsonify(output=output), result
 
 
 if __name__ == "__main__":

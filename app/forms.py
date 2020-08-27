@@ -3,8 +3,10 @@ pass it to the api
 """
 
 from flask_wtf import FlaskForm
-from wtforms import StringField, FloatField, IntegerField, SelectField, SubmitField, TextAreaField
+from wtforms import StringField, FloatField, IntegerField, \
+    SelectField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired
+
 
 class TestForm(FlaskForm):
     """Gets needed values for a campaign to send to api
@@ -14,8 +16,7 @@ class TestForm(FlaskForm):
     goal = FloatField('Amount', )
     keywords = StringField('Descriptive Keywords', )
     disable_com = SelectField('Are Communications Enabled?',
-                            choices=[('False', 'Yes'), ('True', 'No')],
-                            )
+                              choices=[('False', 'Yes'), ('True', 'No')],)
     country = StringField('Country of Campaign', )
     currency = StringField('Type of Currency?', )
     length = IntegerField('Durration of Campaign (In Days)', )

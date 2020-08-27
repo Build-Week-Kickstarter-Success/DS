@@ -36,9 +36,11 @@ class PredModel():
     '''
     def __init__(self, model_file):
         # todo: import pickled model from unit4, and load
-        print('Attempt to load model')
-        with open(model_file, 'rb') as pickle_file:
-            self.model = pickle.load(pickle_file)
+        try:
+            with open(model_file, 'rb') as pickle_file:
+                self.model = pickle.load(pickle_file)
+        except Exception as err:
+            raise err
 
     def validate_input(self, campaign):
         '''
@@ -63,7 +65,14 @@ class PredModel():
                 # todo
                 variables.remove(key)
                 count += 1
-        return count == expected_count
+        if count != expected_count:
+            return False
+
+        if campaign['disable_communication'].lower() not in ('yes', 'no',
+                                                             'true', 'false',
+                                                             '1', '0'):
+            return False
+        return True
 
     def predict(self, campaign):
         '''
@@ -78,14 +87,27 @@ class PredModel():
         Return:
             Binary result of model, 0 or 1.
         '''
+        if campaign['disable_communication'].lower() in ('yes', 'true'):
+            disable = True
+        else:
+            disable = False
 
         # Assure variables from HTML request are in correct order
-        campaign_processed = \
-            np.array([campaign[key] for key in EXPECTED_VARIABLES])
-        campaign_processed = campaign_processed.reshape(1, -1)
+        try:
+            campaign_processed = np.array([campaign['name'],
+                                          campaign['desc'],
+                                          float(campaign['goal']),
+                                          campaign['keywords'],
+                                          disable,
+                                          campaign['country'],
+                                          campaign['currency'],
+                                          int(campaign['campaign_length'])])
+            campaign_processed = campaign_processed.reshape(1, -1)
 
-        # get prediction
-        result = self.model.predict(campaign_processed)
+            # get prediction
+            result = self.model.predict(campaign_processed)
+        except Exception as err:
+            raise err
 
         # Do any processing before returning.
 
