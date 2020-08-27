@@ -1,9 +1,14 @@
 import pickle
-from data_model.helper_functions import clean_text
+import re
 import os
 from keras.models import load_model
 from tensorflow.keras.preprocessing import sequence
 
+
+def clean_text(text):
+    tokens = re.sub('[^a-zA-Z 0-9]', '', text)
+    tokens = tokens.lower().split()
+    return tokens
 
 def make_prediction(object):
     '''
