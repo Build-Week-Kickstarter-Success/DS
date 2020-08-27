@@ -103,4 +103,4 @@ class PredModel():
 
         # Do any processing before returning.
 
-        return result[0]
+        return result
