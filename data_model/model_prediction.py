@@ -36,6 +36,6 @@ def make_prediction(object):
     FILE_PATH = os.path.join(os.path.dirname(__file__), 'finished_models', 'basic_name_model.h5')
     model = load_model(FILE_PATH, compile=False)
 
-    prediction = (model.predict(feature)[0][0] > 0.5).astype('int')
+    prediction = int(model.predict(feature)[0][0] > 0.5)
     print(f'Confidence: {model.predict(feature)[0][0]}')
     return prediction

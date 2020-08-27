@@ -1,9 +1,7 @@
 flask
 gunicorn
 numpy==1.16.0
-jupyter
 scipy==1.4.1
-sklearn
 keras
 flask-wtf
 wtforms
