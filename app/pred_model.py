@@ -4,6 +4,7 @@ import numpy as np
 # todo
 
 from app.model.dummy import DummyModel
+from data_model.model_prediction import make_prediction
 
 
 '''
@@ -37,8 +38,9 @@ class PredModel():
     def __init__(self, model_file):
         # todo: import pickled model from unit4, and load
         try:
-            with open(model_file, 'rb') as pickle_file:
-                self.model = pickle.load(pickle_file)
+            # with open(model_file, 'rb') as pickle_file:
+            #     self.model = pickle.load(pickle_file)
+            self.model = make_prediction
         except Exception as err:
             raise err
 
@@ -94,18 +96,19 @@ class PredModel():
 
         # Assure variables from HTML request are in correct order
         try:
-            campaign_processed = np.array([campaign['name'],
-                                          campaign['desc'],
-                                          float(campaign['goal']),
-                                          campaign['keywords'],
-                                          disable,
-                                          campaign['country'],
-                                          campaign['currency'],
-                                          int(campaign['campaign_length'])])
-            campaign_processed = campaign_processed.reshape(1, -1)
+            # campaign_processed = np.array([campaign['name'],
+            #                               campaign['desc'],
+            #                               float(campaign['goal']),
+            #                               campaign['keywords'],
+            #                               disable,
+            #                               campaign['country'],
+            #                               campaign['currency'],
+            #                               int(campaign['campaign_length'])])
+            # campaign_processed = campaign_processed.reshape(1, -1)
 
             # get prediction
-            result = self.model.predict(campaign_processed)
+            campaign_processed = {'name': campaign['name']}
+            result = self.model(campaign_processed)
         except Exception as err:
             raise err
 

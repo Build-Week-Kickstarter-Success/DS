@@ -1,5 +1,5 @@
 import pickle
-from helper_functions import clean_text
+from data_model.helper_functions import clean_text
 import os
 from keras.models import load_model
 from tensorflow.keras.preprocessing import sequence
