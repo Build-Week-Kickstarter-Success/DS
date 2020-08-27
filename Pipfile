@@ -19,6 +19,7 @@ keras = "*"
 flask-wtf = "*"
 wtforms = "*"
 flask-bootstrap = "*"
+tensorflow = "*"
 
 [requires]
 python_version = "3.7"
