@@ -1,11 +1,9 @@
 flask
 gunicorn
-numpy
-psycopg2
+numpy==1.16.0
 jupyter
-pandas
+scipy==1.4.1
 sklearn
-category-encoders
 keras
 flask-wtf
 wtforms
