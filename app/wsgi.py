@@ -75,7 +75,8 @@ def campaign():
         result = 500
         output = 'Internal error'
     finally:
-        return jsonify(output=output), result
+        print(f'Result = {output}')
+        return jsonify(output=output[0][0]), result
 
 
 if __name__ == "__main__":
