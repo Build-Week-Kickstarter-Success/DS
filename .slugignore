@@ -14,6 +14,6 @@ test
 *.ipynb
 
 # exclude data_model
-data_model
+
 
 
