@@ -1,5 +1,6 @@
 # Installed libraries
-from flask import Flask, jsonify, redirect, render_template, request, url_for
+from flask import Flask, jsonify, redirect, render_template, \
+    request, url_for
 from flask_bootstrap import Bootstrap
 
 # Local libraries
@@ -11,9 +12,6 @@ APP = Flask(__name__)
 Bootstrap(APP)
 
 APP.config['SECRET_KEY'] = 'Its a secret to everyone'
-
-# todo: name for the pickled model
-MODEL_FILE = 'app/model/dummy.pickle'
 
 
 @APP.route('/')
@@ -66,7 +64,7 @@ def campaign():
         input = dict(request.args)
 
     try:
-        model = PredModel(MODEL_FILE)
+        model = PredModel()
         if not model.validate_input(input):
             output = 'Key Error: incorrect input variables'
             result = 400

@@ -3,8 +3,8 @@ import pickle
 import numpy as np
 # todo
 
-from app.model.dummy import DummyModel
-from data_model.model_prediction import make_prediction
+# from data_model.model_prediction import make_prediction
+from data_model.dummy import DummyModel
 
 
 '''
@@ -35,10 +35,10 @@ class PredModel():
     '''
     Load, instantiate, and wrap predictive model
     '''
-    def __init__(self, model_file):
+    def __init__(self):
         # todo: import pickled model from unit4, and load
         try:
-            self.model = make_prediction
+            self.model = DummyModel().predict
         except Exception as err:
             raise err
 
@@ -87,16 +87,17 @@ class PredModel():
         Return:
             Binary result of model, 0 or 1.
         '''
-        if campaign['disable_communication'].lower() in ('yes', 'true'):
-            disable = True
-        else:
-            disable = False
-
-        # Assure variables from HTML request are in correct order
         try:
+            if campaign['disable_communication'].lower() in ('yes', 'true'):
+                campaign['disable_communication'] = True
+            else:
+                campaign['disable_communication'] = False
+
+            campaign['goal'] = float(campaign['goal'])
+            campaign['campaign_length'] = int(campaign['campaign_length'])
+
             # get prediction
-            campaign_processed = {'name': campaign['name']}
-            result = self.model(campaign_processed)
+            result = self.model(campaign)
         except Exception as err:
             raise err
 
