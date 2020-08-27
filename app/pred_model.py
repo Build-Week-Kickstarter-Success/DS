@@ -3,7 +3,8 @@ import pickle
 import numpy as np
 # todo
 
-from app.model.dummy import DummyModel
+# from data_model.model_prediction import make_prediction
+from data_model.model_prediction import make_prediction
 
 
 '''
@@ -34,11 +35,10 @@ class PredModel():
     '''
     Load, instantiate, and wrap predictive model
     '''
-    def __init__(self, model_file):
+    def __init__(self):
         # todo: import pickled model from unit4, and load
         try:
-            with open(model_file, 'rb') as pickle_file:
-                self.model = pickle.load(pickle_file)
+            self.model = make_prediction
         except Exception as err:
             raise err
 
@@ -87,28 +87,20 @@ class PredModel():
         Return:
             Binary result of model, 0 or 1.
         '''
-        if campaign['disable_communication'].lower() in ('yes', 'true'):
-            disable = True
-        else:
-            disable = False
-
-        # Assure variables from HTML request are in correct order
         try:
-            campaign_processed = np.array([campaign['name'],
-                                          campaign['desc'],
-                                          float(campaign['goal']),
-                                          campaign['keywords'],
-                                          disable,
-                                          campaign['country'],
-                                          campaign['currency'],
-                                          int(campaign['campaign_length'])])
-            campaign_processed = campaign_processed.reshape(1, -1)
+            # Convert variables to expected values
+            if campaign['disable_communication'].lower() in ('yes', 'true'):
+                campaign['disable_communication'] = True
+            else:
+                campaign['disable_communication'] = False
+            campaign['goal'] = float(campaign['goal'])
+            campaign['campaign_length'] = int(campaign['campaign_length'])
 
             # get prediction
-            result = self.model.predict(campaign_processed)
+            result = self.model(campaign)
         except Exception as err:
             raise err
 
         # Do any processing before returning.
 
-        return result[0]
+        return result

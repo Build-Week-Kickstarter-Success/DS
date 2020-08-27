@@ -1,5 +1,5 @@
 import pickle
-from helper_functions import clean_text
+from data_model.helper_functions import clean_text
 import os
 from keras.models import load_model
 from tensorflow.keras.preprocessing import sequence
@@ -9,15 +9,15 @@ def make_prediction(object):
     '''
     Accepts a json object that includes a 'name' key that is a string
 
-    returns a binary prediction 
+    returns a binary prediction
     '''
-    
+  
     # select the desired feature
     feature = object['name']
 
     # process the feature
     feature = clean_text(feature)
-    
+  
     # tokenize
     FILE_PATH = os.path.join(os.path.dirname(__file__), 'finished_models', 'new_tokenizer.pickle')
     token_maker = pickle.load(open(FILE_PATH, 'rb'))

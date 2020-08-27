@@ -3,6 +3,9 @@
 
 # exclude dummy making
 make_dummy.py
+dummy.py
+dummy.pickle
+data_mining
 
 # exclude vscode settings
 .vscode
@@ -14,6 +17,6 @@ test
 *.ipynb
 
 # exclude data_model
-data_model
 
+*.zip
 
