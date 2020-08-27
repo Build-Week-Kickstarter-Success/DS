@@ -12,7 +12,7 @@ import re
 
 
 def load_data():
-    FILE_PATH = os.path.join(os.getcwd(), 'data', 'initial_cleaned_data.csv')
+    FILE_PATH = os.path.join(os.getcwd(), 'data', 'large_data.csv')
     return pd.read_csv(FILE_PATH, index_col=None)
 
 def upsample_minority(df):
