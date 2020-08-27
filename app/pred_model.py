@@ -26,7 +26,7 @@ currency: currency in which goal (amount) is required
 campaign length: the length of the campaign
 '''
 
-EXPECTED_VARIABLES = ['name', 'desc', 'goal', 'keywords',
+EXPECTED_VARIABLES = ['name', 'desc', 'goal',
                       'disable_communication', 'country',
                       'currency', 'campaign_length']
 
