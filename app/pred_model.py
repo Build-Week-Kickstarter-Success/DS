@@ -4,7 +4,7 @@ import numpy as np
 # todo
 
 # from data_model.model_prediction import make_prediction
-from data_model.dummy import DummyModel
+from data_model.model_prediction import make_prediction
 
 
 '''
@@ -38,7 +38,7 @@ class PredModel():
     def __init__(self):
         # todo: import pickled model from unit4, and load
         try:
-            self.model = DummyModel().predict
+            self.model = make_prediction
         except Exception as err:
             raise err
 
@@ -88,11 +88,11 @@ class PredModel():
             Binary result of model, 0 or 1.
         '''
         try:
+            # Convert variables to expected values
             if campaign['disable_communication'].lower() in ('yes', 'true'):
                 campaign['disable_communication'] = True
             else:
                 campaign['disable_communication'] = False
-
             campaign['goal'] = float(campaign['goal'])
             campaign['campaign_length'] = int(campaign['campaign_length'])
 
