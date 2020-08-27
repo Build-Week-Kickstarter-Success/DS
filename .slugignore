@@ -19,4 +19,6 @@ test
 # exclude data_model
 
 *.zip
+*.sqlite
+*.csv
 
