@@ -59,7 +59,7 @@ def campaign():
 
     # Determine request method and fetch parameters
     if request.method == 'POST':
-        input = dict(request.form)
+        input = dict(request.get_json(force=True))
     elif request.method == 'GET':
         input = dict(request.args)
 
