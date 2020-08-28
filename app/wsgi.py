@@ -24,23 +24,17 @@ def root():
 def test_api():
     form = TestForm()
     if form.validate_on_submit():
-        name = form.name.data
-        desc = form.desc.data
-        goal = form.goal.data
-        keywords = form.keywords.data
-        disable_communication = form.disable_com.data
-        country = form.country.data
-        currency = form.currency.data
-        campaign_length = form.length.data
-        return redirect(url_for('campaign',
-                                name=name,
-                                desc=desc,
-                                goal=goal,
-                                keywords=keywords,
-                                disable_communication=disable_communication,
-                                country=country,
-                                currency=currency,
-                                campaign_length=campaign_length))
+        campaign = jsonify(
+            name = form.name.data,
+            desc = form.desc.data,
+            goal = form.goal.data,
+            keywords = form.keywords.data,
+            disable_communication = form.disable_com.data,
+            country = form.country.data,
+            currency = form.currency.data,
+            campaign_length = form.length.data
+        )
+        return redirect(url_for('campaign', data=campaign))                           
 
     return render_template('test_api.html', form=form)
 
