@@ -5,13 +5,13 @@
 make_dummy.py
 dummy.py
 dummy.pickle
-data_mining
+/data_mining
 
 # exclude vscode settings
 .vscode
 
 # exclude unit tests
-test
+/test
 
 # exclude notebooks
 *.ipynb
