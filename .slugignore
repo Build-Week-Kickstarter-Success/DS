@@ -21,4 +21,5 @@ dummy.pickle
 *.zip
 *.sqlite
 *.csv
+*.md
 
